@@ -1,0 +1,11 @@
+span {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+}
+
+button {
+  background-color: navy;
+  color: antiquewhite;
+  margin: 2px;
+}

@@ -11,7 +11,8 @@
     />
   </head>
   <body>
-    <div class="container">
+    <app-login></app-login>
+    <div *ngIf="loggedIn" class="container">
       <h3>Список расходов</h3>
       <table class="table">
         <thead>
