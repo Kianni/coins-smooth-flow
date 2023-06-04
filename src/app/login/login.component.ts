@@ -11,6 +11,7 @@ import {
   sequenceEqual,
   tap,
 } from 'rxjs';
+import { PASSCODE } from '../../password';
 
 @Component({
   selector: 'app-login',
@@ -26,8 +27,6 @@ export class LoginComponent {
   fillingDot_3 = false;
   fillingDot_4 = false;
   indexInSeq = 0;
-
-  PASSCODE = [1, 1, 1, 1];
 
   @Output() loggedIn = new EventEmitter<boolean>();
 
@@ -97,7 +96,7 @@ export class LoginComponent {
       this.clearDots(),
       mergeMap((inputPWD) =>
         from(inputPWD as ObservableInput<any>).pipe(
-          sequenceEqual(from(this.PASSCODE))
+          sequenceEqual(from(PASSCODE))
         )
       )
     );
