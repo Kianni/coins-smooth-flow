@@ -21,8 +21,12 @@ export class LoginComponent {
   input$ = new Subject();
   inputSub: Subscription | null = null;
 
+  fillingDot_1 = false;
+  fillingDot_2 = false;
+  fillingDot_3 = false;
+  fillingDot_4 = false;
   indexInSeq = 0;
-  classes = ['1_Dot', '2_Dot', '3_Dot', '4_Dot'];
+
   PASSCODE = [1, 1, 1, 1];
 
   @Output() loggedIn = new EventEmitter<boolean>();
@@ -30,21 +34,16 @@ export class LoginComponent {
   ngOnInit() {
     this.inputSub = this.input$
       .pipe(
-        // tap(() => {
-        //   const dot = document.getElementById(classes[indexInSeq++]) as HTMLElement;
-        //   dot.classList.add('bg-blue-400');
-        // }),
-        // this.fillDots(),
+        this.fillDots(),
         map((data: any) => {
           return parseInt(data, 10);
         }),
         this.verifyPasscode(),
         tap((login) => this.loggedIn.emit(login))
-        // todo: use verifyPasscode operator
       )
       .subscribe({
         error: console.error,
-        next: console.log,
+        // next: console.log,
         complete: () => console.log('complete'),
       });
   }
@@ -59,27 +58,43 @@ export class LoginComponent {
         if (this.indexInSeq > 3) {
           this.indexInSeq = 0;
         }
-        const dot = document.getElementById(
-          this.classes[this.indexInSeq++]
-        ) as HTMLElement;
-        dot.classList.add('bg-blue-400');
+
+        switch (this.indexInSeq) {
+          case 0: {
+            this.fillingDot_1 = true;
+            break;
+          }
+          case 1: {
+            this.fillingDot_2 = true;
+            break;
+          }
+          case 2: {
+            this.fillingDot_3 = true;
+            break;
+          }
+          case 3: {
+            this.fillingDot_4 = true;
+            break;
+          }
+        }
+        this.indexInSeq++;
       })
     );
 
   clearDots = () =>
     pipe(
       tap(() => {
-        this.classes.forEach((spanID) => {
-          let refillDot = document.getElementById(spanID) as HTMLElement;
-          setTimeout(() => refillDot.classList.remove('bg-blue-400'), 1000);
-        });
+        this.fillingDot_1 = false;
+        this.fillingDot_2 = false;
+        this.fillingDot_3 = false;
+        this.fillingDot_4 = false;
       })
     );
 
   verifyPasscode = () => {
     return pipe(
       bufferCount<number>(4),
-      // this.clearDots(),
+      this.clearDots(),
       mergeMap((inputPWD) =>
         from(inputPWD as ObservableInput<any>).pipe(
           sequenceEqual(from(this.PASSCODE))

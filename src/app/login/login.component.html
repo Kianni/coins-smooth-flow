@@ -1,10 +1,22 @@
 <div class="container mt-5">
   <div class="container items-center justify-center">
     <div class="dots d-flex justify-content-center mb-3">
-      <span class="mx-2 border border-primary rounded-circle" id="1_Dot"></span>
-      <span class="mx-2 border border-primary rounded-circle" id="2_Dot"></span>
-      <span class="mx-2 border border-primary rounded-circle" id="3_Dot"></span>
-      <span class="mx-2 border border-primary rounded-circle" id="4_Dot"></span>
+      <span
+        [ngStyle]="{ backgroundColor: fillingDot_1 ? 'navy' : null }"
+        class="mx-2 border border-primary rounded-circle"
+      ></span>
+      <span
+        [ngStyle]="{ backgroundColor: fillingDot_2 ? 'navy' : null }"
+        class="mx-2 border border-primary rounded-circle"
+      ></span>
+      <span
+        [ngStyle]="{ backgroundColor: fillingDot_3 ? 'navy' : null }"
+        class="mx-2 border border-primary rounded-circle"
+      ></span>
+      <span
+        [ngStyle]="{ backgroundColor: fillingDot_4 ? 'navy' : null }"
+        class="mx-2 border border-primary rounded-circle"
+      ></span>
     </div>
     <div class="">
       <div class="row justify-content-center">
