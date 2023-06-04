@@ -26,6 +26,10 @@ export class AppComponent {
     this.getDebt();
   }
 
+  onLoginCheck(data: boolean) {
+    this.loggedIn = data;
+  }
+
   getDebt() {
     let expenditure_Kirill = 0;
     let expenditure_Sofia = 0;
