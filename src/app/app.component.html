@@ -16,6 +16,10 @@
       *ngIf="loggedIn"
       [spendings]="spendings"
     ></app-spending-list>
+    <app-add-spending
+      *ngIf="loggedIn"
+      (newSpending)="saveSpendingToDB($event)"
+    ></app-add-spending>
     <button
       *ngIf="loggedIn"
       (click)="loggedIn = false"

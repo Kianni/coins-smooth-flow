@@ -11,7 +11,7 @@ export class SpendingListComponent {
   @Input() spendings: Spending[] = [];
   sentence: string = '';
 
-  ngOnInit() {
+  ngOnChanges() {
     const [debtor, debtAmount] = this.getDebt(this.spendings);
     this.sentence = this.makeSentence(debtor, debtAmount);
   }

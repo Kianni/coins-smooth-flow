@@ -8,12 +8,14 @@ import { environment } from '../environments/environment';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { SpendingListComponent } from './spending-list/spending-list.component';
+import { AddSpendingComponent } from './add-spending/add-spending.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SpendingListComponent
+    SpendingListComponent,
+    AddSpendingComponent
   ],
   imports: [
     BrowserModule,
