@@ -14,7 +14,6 @@
     <app-login *ngIf="!loggedIn" (loggedIn)="onLoginCheck($event)"></app-login>
     <app-spending-list
       *ngIf="loggedIn"
-      [sentence]="sentence"
       [spendings]="spendings"
     ></app-spending-list>
     <button
