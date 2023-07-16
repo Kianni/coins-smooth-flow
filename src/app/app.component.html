@@ -12,28 +12,11 @@
   </head>
   <body>
     <app-login *ngIf="!loggedIn" (loggedIn)="onLoginCheck($event)"></app-login>
-    <div *ngIf="loggedIn" class="container">
-      <h3>Список расходов</h3>
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Кто оплатил</th>
-            <th scope="col">Покупка</th>
-            <th scope="col">Стоимость</th>
-            <th scope="col">Дата</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let spending of spendings$ | async">
-            <th scope="row">{{ spending.payer }}</th>
-            <td>{{ spending.asset }}</td>
-            <td>{{ spending.cost }}</td>
-            <td>{{ spending.date }}</td>
-          </tr>
-        </tbody>
-      </table>
-      <p>{{ sentence }} {{ debtAmount }} €</p>
-    </div>
+    <app-spending-list
+      *ngIf="loggedIn"
+      [sentence]="sentence"
+      [spendings]="spendings"
+    ></app-spending-list>
     <button
       *ngIf="loggedIn"
       (click)="loggedIn = false"
