@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+// import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  // constructor(private db: AngularFirestore) {}
+
   loggedIn = false;
   data = [
     {
@@ -47,5 +50,17 @@ export class AppComponent {
     return this.debtor === 'Кирилл'
       ? 'Кирилл должен перевести Софии '
       : 'Cофия должна перевести Кириллу ';
+  }
+
+  getSpendings() {
+    console.log('Spendings!');
+    this.uploadData();
+  }
+
+  async uploadData() {
+    // const spendings = this.db.collection('spendings');
+    // const courses = await this.db.collection('spendings').get();
+    // console.log(spendings);
+    // console.log(courses);
   }
 }
