@@ -1,1 +1,38 @@
-<button (click)="addSpending()">Добавить запись</button>
+<form
+  [formGroup]="addRecordForm"
+  (ngSubmit)="onSubmit(addRecordForm)"
+  class="mx-auto"
+>
+  <div class="form-group">
+    <label for="asset">Покупка</label>
+    <input
+      formControlName="asset"
+      type="text"
+      class="form-control"
+      id="asset"
+      placeholder="за что заплачено"
+    />
+  </div>
+  <div class="form-group">
+    <label for="cost">Цена</label>
+    <input
+      formControlName="cost"
+      type="number"
+      class="form-control"
+      id="cost"
+      placeholder="сумма"
+    />
+  </div>
+  <div class="form-group">
+    <label for="cost">Дата</label>
+    <input
+      formControlName="date"
+      type="text"
+      class="form-control"
+      id="date"
+      placeholder="дата"
+    />
+  </div>
+
+  <button type="submit" class="btn btn-primary mt-2">Добавить запись</button>
+</form>

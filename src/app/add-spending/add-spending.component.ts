@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Spending } from '../models/spending';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-add-spending',
@@ -9,12 +10,30 @@ import { Spending } from '../models/spending';
 export class AddSpendingComponent {
   @Output() newSpending = new EventEmitter<Spending>();
 
-  addSpending() {
-    this.newSpending.emit({
-      payer: 'София',
-      asset: 'Билеты на поезд',
-      cost: 200,
-      date: '13.7',
+  constructor(private fb: FormBuilder) {}
+
+  addRecordForm: any;
+
+  ngOnInit() {
+    this.addRecordForm = new FormGroup({
+      payer: this.fb.control('София'),
+      asset: this.fb.control(''),
+      cost: this.fb.control(''),
+      date: this.fb.control(''),
     });
+  }
+
+  // addSpending() {
+  //   this.newSpending.emit({
+  //     payer: 'София',
+  //     asset: 'Билеты на поезд',
+  //     cost: 200,
+  //     date: '13.7',
+  //   });
+  // }
+
+  onSubmit(formData: any) {
+    console.log(formData.value);
+    this.newSpending.emit(formData.value);
   }
 }
