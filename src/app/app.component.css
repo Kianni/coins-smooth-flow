@@ -1,11 +1,6 @@
-#morda {
+img {
   height: 5rem;
-  width: 10rem;
-}
-
-#morda:hover {
-  animation: zoomIn 3s;
-  animation-iteration-count: infinite;
+  width: 5rem;
 }
 
 img:hover {
@@ -16,15 +11,7 @@ img:hover {
 body {
   height: 100vh;
   overflow: auto;
-}
-
-@keyframes zoomIn {
-  0% {
-    transform: scale(1, 1);
-  }
-  100% {
-    transform: scale(7, 4);
-  }
+  background-color: lightyellow;
 }
 
 @keyframes shake {

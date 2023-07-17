@@ -10,7 +10,7 @@
       crossorigin="anonymous"
     />
   </head>
-  <body [ngStyle]="{ backgroundColor: bg ? 'black' : 'lightyellow' }">
+  <body>
     <app-login *ngIf="!loggedIn" (loggedIn)="onLoginCheck($event)"></app-login>
     <app-spending-list
       *ngIf="loggedIn"
@@ -27,14 +27,16 @@
     >
       Log out
     </button>
-    <div
+
+    <img
       *ngIf="!loggedIn"
-      class="d-flex justify-content-center mt-3 mx-auto"
-      id="morda"
-      (mouseover)="onHover()"
-    >
-      <img src="../assets/morda.jpg" alt="morda" />
-    </div>
+      class="d-block mx-auto mt-3"
+      (mouseenter)="onHover()"
+      (mouseout)="onHover()"
+      src="../assets/morda.jpg"
+      alt="morda"
+      [ngStyle]="{ border: bg ? '4px dashed black' : 'lightyellow' }"
+    />
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
