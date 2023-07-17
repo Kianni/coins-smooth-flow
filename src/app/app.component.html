@@ -12,14 +12,19 @@
   </head>
   <body>
     <app-login *ngIf="!loggedIn" (loggedIn)="onLoginCheck($event)"></app-login>
-    <app-spending-list
-      *ngIf="loggedIn"
-      [spendings]="spendings"
-    ></app-spending-list>
-    <app-add-spending
-      *ngIf="loggedIn"
-      (newSpending)="saveSpendingToDB($event)"
-    ></app-add-spending>
+    <div class="row">
+      <app-spending-list
+        class="col-12 col-lg-6"
+        *ngIf="loggedIn"
+        [spendings]="spendings"
+      ></app-spending-list>
+      <app-add-spending
+        class="col-12 col-lg-6"
+        *ngIf="loggedIn"
+        (newSpending)="saveSpendingToDB($event)"
+      ></app-add-spending>
+    </div>
+
     <button
       *ngIf="loggedIn"
       (click)="loggedIn = false"

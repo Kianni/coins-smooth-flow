@@ -33,7 +33,7 @@ export class AddSpendingComponent {
   // }
 
   onSubmit(formData: any) {
-    console.log(formData.value);
     this.newSpending.emit(formData.value);
+    this.addRecordForm.reset();
   }
 }
