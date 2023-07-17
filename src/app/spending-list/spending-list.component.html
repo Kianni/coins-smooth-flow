@@ -14,7 +14,9 @@
         <th scope="row">{{ spending.payer }}</th>
         <td>{{ spending.asset }}</td>
         <td>{{ spending.cost }}</td>
-        <td>{{ spending.date }}</td>
+        <td>
+          {{ +spending.date * 1000 | date : "dd-MMM" : "GMT+2" }}
+        </td>
       </tr>
     </tbody>
   </table>
