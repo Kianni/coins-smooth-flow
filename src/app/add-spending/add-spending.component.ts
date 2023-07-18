@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Spending } from '../models/spending';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { DatepickerOverviewExample } from './datepicker-overview-example';
 
 @Component({
   selector: 'app-add-spending',
